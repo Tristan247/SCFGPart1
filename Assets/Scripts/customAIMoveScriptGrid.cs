@@ -39,11 +39,12 @@ public class customAIMoveScriptGrid : MonoBehaviour
 
         //the instance of the seeker attached to this game object
         seeker = GetComponent<Seeker>();
-        target = GameObject.Find("Black player box").transform;
+        target = GameObject.Find("Target").transform;
 
-        graphParent = GameObject.Find("Grid");
+        graphParent = GameObject.Find("AStar");
         //we scan the graph to generate it in memory
         graphParent.GetComponent<AstarPath>().Scan();
+        
 
         //generate the initial path
         pathToFollow = seeker.StartPath(transform.position, target.position);
